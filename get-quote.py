@@ -5,26 +5,36 @@ def primary():
     f = open("quotes.txt", encoding="utf8")
     quotes = f.readlines()
     f.close()
-    last = len(quotes) - 1
-    rnd = random.randint(0, last)
-    print(quotes[rnd] + "\n" + quotes[rnd + 1])
+    quote = random.choice(quotes)
+    print(quote)
 
 
 def secondary():
     f = open("quotes.txt", encoding="utf8")
     quotes = f.readlines()
     f.close()
-    quote = input("Enter a quote: ")
-    if quote in quotes or quote == "" or quote == int or quote == float:  # if quote is in quotes.txt
-        print("Quote already exists")
+    quote = input("Enter a quote to add it or press 'e' to exit or 'r' to get a random quote: ")
+    if quote == "e":
+        print("Goodbye!")
+        exit()
+    elif quote == "r":
+        quote = random.choice(quotes)
+        print(quote)
     else:
-        quotes.append(quote + "\n")  # add quote to quotes.txt
-        f = open("quotes.txt", "w", encoding="utf8")
-        f.writelines(quotes)
-        f.close()
-        print("Quote added")
+        for i in quotes:
+            if quote in i:
+                print(i)
+                break
+        else:
+            print("Quote not found.")
+            quotes.append(quote)
+            f = open("quotes.txt", "w", encoding="utf8")
+            for i in quotes:
+                f.write(i)
+            f.close()
 
-
-if __name__ == "__main__":
+while True:
     primary()
     secondary()
+# End of file
+
