@@ -1,4 +1,5 @@
 import random
+import sys
 
 
 def primary():
@@ -16,7 +17,7 @@ def secondary():
     quote = input("Enter a quote to add it or press 'e' to exit or 'r' to get a random quote: ")
     if quote == "e":
         print("Goodbye!")
-        exit()
+        sys.exit()
     elif quote == "r":
         quote = random.choice(quotes)
         print(quote)
