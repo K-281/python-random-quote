@@ -1,5 +1,6 @@
 import random
 import sys
+# from colorama import init, Fore, Back, Style
 
 
 def primary():
@@ -20,22 +21,22 @@ def secondary():
         sys.exit()
     elif quote == "r":
         quote = random.choice(quotes)
-        print(quote)
+        print(f'{quote}')
     else:
         for i in quotes:
             if quote in i:
                 print(i)
                 break
         else:
-            print("Quote not found.")
+            print("Quote added.")
             quotes.append(quote)
             f = open("quotes.txt", "w", encoding="utf8")
             for i in quotes:
                 f.write(i)
             f.close()
 
+
 while True:
     primary()
     secondary()
 # End of file
-
