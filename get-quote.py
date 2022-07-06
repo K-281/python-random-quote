@@ -1,6 +1,5 @@
 import random
 import sys
-# from colorama import init, Fore, Back, Style
 
 
 def primary():
@@ -15,11 +14,11 @@ def secondary():
     f = open("quotes.txt", encoding="utf8")
     quotes = f.readlines()
     f.close()
-    quote = input("Enter a quote to add it or press 'e' to exit or 'r' to get a random quote: ")
+    quote = input("Enter a quote to add it or press 'e' to exit or 'r' 'enter' to get a random quote: ")
     if quote == "e":
         print("Goodbye!")
         sys.exit()
-    elif quote == "r":
+    elif quote == "r" or quote == "":
         quote = random.choice(quotes)
         print(f'{quote}')
     else:
